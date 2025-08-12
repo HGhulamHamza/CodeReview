@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* App container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+.app-container.light {
+  background: linear-gradient(135deg, #ffffff, #f0f4f8);
+  color: #222;
+}
+
+.app-container.dark {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f5f5f5;
+}
+
+/* Heading */
+.app-heading {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+}
+
+/* Robot Icon - fixed color */
+.robot-icon {
+  font-size: 2.2rem;
+  color: #ff7e5f;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Tagline - visible on light & dark */
+.tagline {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color:  #ff7e5f;/* Light blue visible on both themes */
+  margin-top: 6px;
+}
+
+/* Toggle button */
+.toggle-btn {
+  background: transparent;
+  border: 2px solid currentColor;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* Main layout */
+main {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.left, .right {
+  flex: 1;
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Code editor area */
+.left {
+  background: rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+.left.light {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.code, .code pre, .code pre code {
+  height: 100%;
+  border-radius: 1rem;
+}
+
+/* Review button with glow animation */
+.review {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: linear-gradient(90deg, #ff8a00, #e52e71);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(229, 46, 113, 0.6);
+  transition: all 0.3s ease;
+}
+
+.review:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 0 20px rgba(229, 46, 113, 0.8);
+}
+
+/* Output area */
+.right {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem 1.5rem;
+  overflow-y: auto;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+/* Loader animation */
+.loader {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding-top: 40px;
+}
+
+.loader span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #ff7e5f;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  to {
+    transform: translateY(-8px);
+    opacity: 0.6;
+  }
+}
