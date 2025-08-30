@@ -27,7 +27,7 @@ function App() {
     setReview("");
     try {
       const response = await axios.post(
-        "http://localhost:3000/ai/get-review",
+        "https://code-review-zjxa.vercel.app/ai/get-review",
         { code }
       );
       setReview(response.data);
