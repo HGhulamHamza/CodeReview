@@ -4,11 +4,17 @@ const cors = require('cors');
 
 const app = require('./src/app');
 
-// Enable CORS
+// ✅ Parse JSON body
+app.use(express.json());
+
+// ✅ Enable CORS for both local + deployed frontend
 app.use(cors({
-  origin: 'http://localhost:5173', // your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: [
+    "http://localhost:5173", 
+    "https://code-review-kodl.vercel.app/" // replace with actual frontend URL
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.listen(3000, () => {
